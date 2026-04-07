@@ -1,10 +1,24 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import React from 'react'
-import {createRoot} from 'react-dom/client'
-import { createBrowserRouter, RouterProvider, Link} from 'react-router-dom'
+import { createRoot } from 'react-dom/client'
+import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
+
+import Home from './pages/Home'
+import Menu from './components/Menu/Menu';
+
+function AppLayout() {
+    return (
+        <>
+            <Menu />
+            <Outlet />
+        </>
+    )
+}
 
 function Page1() {
     return (
-        <div>   
+        <div>
             <h1>Hello CritiPlay - Page1</h1>
         </div>
     )
@@ -12,7 +26,7 @@ function Page1() {
 
 function Page2() {
     return (
-        <div>   
+        <div>
             <h1>Hello CritiPlay - Page2</h1>
         </div>
     )
@@ -21,15 +35,21 @@ function Page2() {
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Page1 />,
-    },
-    {
-        path: "/page1",
-        element: <Page1 />,
-    },
-    {
-        path: "/page2",
-        element: <Page2 />,
+        element: <AppLayout />,
+        children: [
+            {
+                index: true,
+                element: <Home />,
+            },
+            {
+                path: "page1",
+                element: <Page1 />,
+            },
+            {
+                path: "page2",
+                element: <Page2 />,
+            }
+        ]
     }
 
 ]);
