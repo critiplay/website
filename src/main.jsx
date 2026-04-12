@@ -1,6 +1,10 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles/base.css';
+
 import React from 'react'
 import {createRoot} from 'react-dom/client'
-import { createBrowserRouter, RouterProvider, Link} from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { WebsiteLayout } from './layouts/website';
 
 function Page1() {
     return (
@@ -21,15 +25,21 @@ function Page2() {
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Page1 />,
-    },
-    {
-        path: "/page1",
-        element: <Page1 />,
-    },
-    {
-        path: "/page2",
-        element: <Page2 />,
+        element: <WebsiteLayout />,
+        children: [
+            {
+                index: true,
+                element: <Page1 />,
+            },
+            {
+                path: "page1",
+                element: <Page1 />,
+            },
+            {
+                path: "page2",
+                element: <Page2 />,
+            }
+        ]
     }
 
 ]);
