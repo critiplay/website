@@ -4,6 +4,16 @@ import compression from 'vite-plugin-compression'
 
 // https://vite.dev/config/
 export default defineConfig({
+    build: {
+        assetsDir: '',
+        rollupOptions: {
+            output: {
+                entryFileNames: '[name]-[hash].js',
+                chunkFileNames: '[name]-[hash].js',
+                assetFileNames: '[name]-[hash][extname]',
+            },
+        },
+    },
     plugins: [
         react(),
         compression({
