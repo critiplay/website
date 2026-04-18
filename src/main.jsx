@@ -21,22 +21,23 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
+                path: "/website",
                 element: <Home />,
             },
             {
-                path: "reviews",
+                path: "/website/reviews",
                 element: <Navigate to="/reviews/1" replace />,
             },
             {
-                path: "reviews/:page",
+                path: "/website/reviews/:page",
                 element: <CompareReview />,
             },
             {
-                path: "accuracy",
+                path: "/website/accuracy",
                 element: <Navigate to="/accuracy/1" replace />,
             },
             {
-                path: "accuracy/:page",
+                path: "/website/accuracy/:page",
                 element: <Accuracy />,
             }
         ]
