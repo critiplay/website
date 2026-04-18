@@ -5,6 +5,7 @@ import { viteSingleFile } from 'vite-plugin-singlefile'
 
 // https://vite.dev/config/
 export default defineConfig({
+    base: '/website/',
     build: {
         outDir: 'docs',
         assetsInlineLimit: 100000000,

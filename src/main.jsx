@@ -42,7 +42,9 @@ const router = createBrowserRouter([
         ]
     }
 
-]);
+], {
+    basename: "/website",
+});
 
 createRoot(document.getElementById('root')).render(
     <React.StrictMode>
